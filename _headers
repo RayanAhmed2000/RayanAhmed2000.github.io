@@ -1,0 +1,8 @@
+# Used by Cloudflare Pages and Netlify. Long cache for static assets.
+/assets/*
+  Cache-Control: public, max-age=604800
+/banna.js
+  Cache-Control: public, max-age=604800
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
