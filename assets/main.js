@@ -30,6 +30,16 @@
     } else replay.hidden = true
   }
 
+  // Email button: reveal the address in place (no mail app popup)
+  const reveal = document.getElementById('reveal-email')
+  if (reveal) {
+    reveal.addEventListener('click', () => {
+      if (reveal.classList.contains('revealed')) return
+      reveal.textContent = reveal.dataset.email
+      reveal.classList.add('revealed')
+    })
+  }
+
   // Copy email
   document.querySelectorAll('[data-copy]').forEach((btn) => {
     const label = btn.textContent
