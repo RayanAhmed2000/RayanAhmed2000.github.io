@@ -189,7 +189,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   animation: mfade 1s ease 1.4s both; }
-.marquee-track { display: flex; width: max-content; animation: mscroll 45s linear infinite; }
+.marquee-track { display: flex; width: max-content; animation: mscroll 70s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-group { display: flex; flex: none; align-items: center; }
 .marquee-group li { display: flex; align-items: center; font: 600 clamp(20px, 2.6vw, 30px)/1 var(--body); letter-spacing: -.02em; color: #8c8c99; white-space: nowrap; transition: color .2s; }
@@ -197,22 +197,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 .marquee-group li:hover { color: var(--text); }
 @keyframes mscroll { to { transform: translateX(-50%); } }
 @keyframes mfade { from { opacity: 0; } to { opacity: 1; } }
+/* The banner always scrolls (slowly); reduced-motion visitors get an even slower pace and the fade-in is skipped */
 @media (prefers-reduced-motion: reduce) {
-  .marquee { animation: none; -webkit-mask-image: none; mask-image: none; }
-  .marquee-track { animation: none; width: auto; }
-  .marquee-group { flex-wrap: wrap; gap: 12px 0; }
-  .marquee-group[aria-hidden="true"] { display: none; }
+  .marquee { animation: none; }
+  .marquee-track { animation-duration: 120s; }
 }
 
 /* ============ Contact list ============ */
 .reach { display: grid; gap: 22px; align-content: center; }
-.reach-item { display: flex; align-items: center; gap: 16px; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
-.ico { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid var(--red-dim); border-radius: 12px; background: rgba(255, 59, 48, .09); color: var(--red); transition: background .2s, border-color .2s, transform .2s; }
-.ico-text { font: 800 18px/1 var(--body); letter-spacing: -.05em; }
+.reach-item { display: flex; align-items: center; gap: 18px; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.ico { flex: none; display: grid; place-items: center; width: 24px; height: 24px; color: var(--red); transition: transform .2s; }
+.ico-text { font: 800 20px/1 var(--body); letter-spacing: -.06em; }
 .txt { min-width: 0; }
 .txt small { display: block; margin-bottom: 4px; font: 600 10px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .value { display: block; font-size: 15px; font-weight: 500; color: var(--text); overflow-wrap: anywhere; }
-.reach-item:hover .ico { background: rgba(255, 59, 48, .2); border-color: var(--red); transform: translateY(-2px); }
+.reach-item:hover .ico { transform: scale(1.18); }
 .reach-item:hover .value { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--red); }
 @media (min-width: 900px) {
   .contact { grid-template-columns: 1.25fr 1fr; gap: 56px; }
