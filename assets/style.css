@@ -218,12 +218,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   .reach { padding-left: 48px; border-left: 1px solid var(--line); }
 }
 
-/* ============ Clients banner (same strip as the tools banner, opposite direction) ============ */
-.stack--clients { margin-top: 70px; }
+/* ============ Clients banner (same strip as the tools banner, opposite direction, slimmer) ============ */
+.stack--clients { margin-top: 60px; padding: 22px 0 2px; }
+.stack--clients .stack-head { margin-bottom: 8px; }
+.stack--clients .marquee { padding-bottom: 10px; }
 .marquee--ltr .marquee-track { animation-name: mscroll-rev; animation-duration: 75s; }
 @keyframes mscroll-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-.logo-group li::after { margin: 0 clamp(10px, 1.6vw, 22px); }
-.logo-group li img { display: block; width: 170px; height: 68px; object-fit: contain; opacity: .6; transition: opacity .2s; }
+.logo-group li::after { margin: 0 clamp(8px, 1.3vw, 18px); }
+.logo-group li img { display: block; width: 125px; height: 50px; object-fit: contain; opacity: .6; transition: opacity .2s; }
 .logo-group li:hover img { opacity: 1; }
-@media (max-width: 640px) { .logo-group li img { width: 130px; height: 52px; } }
-@media (prefers-reduced-motion: reduce) { .marquee--ltr .marquee-track { animation-duration: 140s; } }
+@media (max-width: 640px) { .logo-group li img { width: 100px; height: 40px; } }
+@media (prefers-reduced-motion: reduce) { .marquee--ltr .marquee-track { animation-duration: 110s; } }
