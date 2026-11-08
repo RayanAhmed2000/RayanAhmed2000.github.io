@@ -217,3 +217,25 @@ ul { margin: 0; padding: 0; list-style: none; }
   .contact { grid-template-columns: 1.25fr 1fr; gap: 56px; }
   .reach { padding-left: 48px; border-left: 1px solid var(--line); }
 }
+
+/* ============ Clients ============ */
+.h2-sm { font-size: clamp(28px, 4.2vw, 44px); max-width: 22ch; }
+.clients { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+.client { display: grid; place-items: center; min-height: 120px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); transition: border-color .2s; }
+.client img { width: var(--w); max-width: 78%; height: auto; opacity: .72; transition: opacity .2s; }
+.client:hover { border-color: var(--red-dim); }
+.client:hover img { opacity: 1; }
+.client:last-child { grid-column: 1 / -1; }
+@media (min-width: 640px) {
+  .clients { grid-template-columns: repeat(6, 1fr); }
+  .client { grid-column: span 2; }
+  .client:last-child { grid-column: span 2; }
+  .client:nth-child(4) { grid-column: 2 / span 2; }
+  .client:nth-child(5) { grid-column: 4 / span 2; }
+}
+@media (min-width: 1000px) {
+  .clients { grid-template-columns: repeat(5, 1fr); }
+  .client, .client:nth-child(4), .client:nth-child(5) { grid-column: auto; }
+  .client { min-height: 132px; }
+}
+@media (max-width: 899px) { .avail { display: none; } }
